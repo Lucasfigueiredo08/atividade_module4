@@ -2,6 +2,7 @@
 
 const Moment = require('moment')
 const crypto = require('crypto')
+
 const User = use('App/Models/User')
 const Mail = use('Mail')
 
@@ -9,7 +10,7 @@ class ForgotPasswordController {
   async store ({ request, response }) {
     try {
       const email = request.input('email')
-      const user = await User.findBy('email', email)
+      const user = await User.findByOrFail('email', email)
 
       user.token = crypto.randomBytes(10).toString('hex')
       user.token_created_at = new Date()

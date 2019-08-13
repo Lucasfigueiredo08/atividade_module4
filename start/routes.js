@@ -17,9 +17,8 @@
 const Route = use('Route')
 
 Route.post('users', 'UserController.store')
-Route.put('users', 'UserController.update')
-
 Route.post('sessions', 'SessionController.store')
+//Route.put('users/:id', 'UserController.update')
 
 Route.post('passwords', 'ForgotPasswordController.store')
 Route.post('passwords', 'ForgotPasswordController.update')
